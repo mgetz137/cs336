@@ -1,0 +1,11 @@
+3.1 Answers:
+
+a. Express is the framework that node runs on
+
+b. Gives information about the files in the repo
+
+3.2 Answers:
+
+a. The files are static in that they do not require the directory to be added to the url
+
+b. It does not continue showing hello world because it has loaded a different route
