@@ -1,0 +1,95 @@
+//variables
+font-size = 24px
+font = font-size, Helvetica
+size2 = 200px
+font2 = size2, Helvetica
+
+
+body 
+        font: font
+        background: #999999
+    
+
+#main 
+        min-height: 80px
+        margin: 0px
+        padding: 0px
+        display: flex
+        flex-flow: row
+    
+ 
+#main > article 
+        margin: 0px
+        padding: 6px
+        border: 1px solid #cccc33
+        border-radius: 1pt
+        background: #dddd88
+        flex: 3 1 60%
+        order: 2
+		font: Monospace, Lucida Console
+		font-style: italic
+		
+    
+
+#main > nav 
+        margin: 0px
+        padding: 6px
+        border: 1px solid #8888bb
+        border-radius: 1pt
+        background: #ccccff
+        flex: 1 6 20%
+        order: 1
+    
+  
+#main > aside 
+        margin: 0px
+        padding: 6px
+        border: 1px solid #8888bb
+        border-radius: 1pt
+        background: #ccccff
+        flex: 1 6 20%
+        order: 3
+    
+ 
+header, footer
+		font-size: 50px
+		display: block
+		margin: 0px
+		padding: 6px
+		min-height: 100px
+		border: 1px solid #eebb55
+		border-radius: 1pt
+		background: #ffeebb
+		
+header
+		font-size: 100px
+		color: #A47
+		
+#header > div
+		margin: 2px
+		padding: 0px
+		border: 1px solid #8888bb
+		border-radius: 1pt
+		flex: 1 6 20%
+		
+    
+//phone and desktop stuff, alignment
+@media all and (max-width: 640px) 
+	#main, #page 
+    	flex-direction: column
+    
+	#main > article, #main > nav, #main > aside 
+    	order: 0
+    	text-align: right
+  
+	#main > nav, #main > aside, header, footer 
+    	min-height: 50px
+    	max-height: 50px
+
+/*text alignment for phone*/
+@media only screen and (max-width: 786px) 
+	/* For mobile devices: */
+	[class*="col-"] 
+		text-align: left
+		max-height: 50px
+		min-height: 50px
