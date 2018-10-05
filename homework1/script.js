@@ -1,6 +1,6 @@
 /*Matthew Getz
  *homework1
- *10-6-18
+ *10-5-18
  *JS database
  */
 
@@ -39,7 +39,7 @@ function getYears(id) {
     for (var i = 0; i < peopleArray.length; i++) {
         if (peopleArray[i].id = id) {
             var startDate = new Date(peopleArray[i].date)
-            var years = (Math.floor((today - startDate) / (1000*60*60*24*365)));
+            var years = (Math.floor((today - date) / (1000*60*60*24*365)));
             return years;
         }
     }
