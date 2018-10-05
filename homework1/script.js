@@ -4,6 +4,8 @@
  *JS database
  */
 
+//ignore
+
 // person specs
 function Person(Identity, first, last, start){
   this.id = Identity;
