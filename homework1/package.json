@@ -1,7 +1,7 @@
 {
-  "name": "lab03",
+  "name": "homework1",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "homework1.js",
   "scripts": {
     "start": "node homework1.js",
     "test": "echo \"Error: no test specified\" && exit 1"
