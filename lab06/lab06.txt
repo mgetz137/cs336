@@ -1,0 +1,23 @@
+//lab06 Answers
+
+6.1A
+
+I was able to use GET in the browser.
+I was able to GET, HEAD with curl
+
+curl -X GET localhost:3000/requests
+curl -X HEAD localhost:3000/requests
+
+I struggled with syntax for many of these which is why I may have had trouble using them.
+
+6.1B
+
+NOT_FOUND (404) 0r NOT_IMPLEMENTED (501)
+
+6.2A
+
+HTTP forms supports GET and POST
+
+6.2B
+
+JSON
