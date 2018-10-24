@@ -5,6 +5,11 @@
 /10-5-18
 */
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+
 // person specs
 function Person(Identity, first, last, start){
   this.id = Identity;
@@ -72,3 +77,5 @@ app.get('/person:id/years', (req, res) => {
         res.sendStatus(404);
     }
 });
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
