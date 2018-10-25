@@ -4,7 +4,7 @@
   "description": "",
   "main": "homework2.js",
   "scripts": {
-    "start": "npm homework2.js",
+    "start": "node homework2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
