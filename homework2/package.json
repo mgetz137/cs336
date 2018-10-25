@@ -1,0 +1,15 @@
+{
+  "name": "homework2",
+  "version": "1.0.0",
+  "main": "homework2.js",
+  "scripts": {
+    "start": "node homework2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "description": ""
+}
