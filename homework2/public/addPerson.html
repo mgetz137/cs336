@@ -1,0 +1,30 @@
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+    <title>Add Person</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Add Person to Database</h1>
+    <form id="add" action="/people" method="POST">
+        Person ID: <br/>
+        <input type="text" name="id"><br/>
+        First Name:<br/>
+        <input type="text" name="firstName"><br/>
+        Last Name:<br/>
+        <input type="text" name="lastName"><br/>
+        Start Date:<br/>
+        <input type="date" name="startDate"><br/>
+        <br/>
+
+        <input type="submit" name="submitBttn">
+        <br/>
+        <br/>
+        <label id="responseHere"></label>
+    </form>
+</body>
+</html>
