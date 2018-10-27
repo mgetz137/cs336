@@ -29,36 +29,11 @@ var people = JSON.parse(`
 ]
 `);
 
-// function for id retrieval
-function getName(id) {
-    for (var i = 0; i < people.length; i++) {
-        if (people[i].id = id) {
-            return (people[i].nameFirst + " " + people[i].nameLast);
-        }
-    }
-    return '404';
-}
-
-// function for years worked retrieval
-function getYears(id) {
-    var today = new Date();
-    for (var i = 0; i < people.length; i++) {
-        if (people[i].id = id) {
-            var startDate = new Date(people[i].date)
-            var years = (Math.floor((today - date) / (1000*60*60*24*365)));
-            return years;
-        }
-    }
-    return '404';
-}
-
-// people route
 app.get('/people', (req, res) => {
     res.json(people);
 });
 
-// person/id route
-app.get('/person:id', (req, res) => {
+app.get('/person/:id', (req, res) => {
     var request = req.params.id;
     var response = getPerson(req.params.id);
     if (response != "404") {
@@ -68,9 +43,9 @@ app.get('/person:id', (req, res) => {
     }
 });
 
-// person/id/years route
-app.get('/person:id/years', (req, res) => {
-    var response = getYears(req.params.id);
+app.get('/person/:id/name', (req, res) => {
+    var request = req.params.id;
+    var response = getName(req.params.id);
     if (response != "404") {
         res.json(response);
     } else {
@@ -78,8 +53,47 @@ app.get('/person:id/years', (req, res) => {
     }
 });
 
+app.get('/person/:id/years', (req, res) => {
+    var years = getYears(req.params.id);
+    if (years != "404") {
+        res.json(years);
+    } else {
+        res.sendStatus(404);
+    }
+});
+
+function getPerson(id) {
+    for (var i = 0; i < people.length; i++) {
+        if (people[i].id == id) {
+            return people[i];
+        }
+    }
+    return '404';
+}
+
+function getName(id) {
+    for (var i = 0; i < people.length; i++) {
+        if (people[i].id == id) {
+            return (people[i].firstName + " " + people[i].lastName);
+        }
+    }
+    return '404';
+}
+
+function getYears(id) {
+    var today = new Date();
+    for (var i = 0; i < people.length; i++) {
+        if (people[i].id == id) {
+            var startDate = new Date(people[i].startDate)
+            var numYears = (Math.floor((today - startDate) / (1000*60*60*24*365)));
+            return numYears;
+        }
+    }
+    return '404';
+}
+
 app.all("*", (req, res) => {
     res.sendStatus(404);
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
