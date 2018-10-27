@@ -29,56 +29,81 @@ var people = JSON.parse(`
 ]
 `);
 
-app.get('/people', (req, res) => {
-    res.json(people);
-});
-
-app.get('/person/:id', (req, res) => {
-    var request = req.params.id;
-    var response = getPerson(req.params.id);
-    if (response != "404") {
-        res.json(response);
-    } else {
-        res.sendStatus(404);
-    }
-});
-
-app.get('/person/:id/name', (req, res) => {
-    var request = req.params.id;
-    var response = getName(req.params.id);
-    if (response != "404") {
-        res.json(response);
-    } else {
-        res.sendStatus(404);
-    }
-});
-
-app.get('/person/:id/years', (req, res) => {
-    var years = getYears(req.params.id);
-    if (years != "404") {
-        res.json(years);
-    } else {
-        res.sendStatus(404);
-    }
-});
-
-function getPerson(id) {
-    for (var i = 0; i < people.length; i++) {
-        if (people[i].id == id) {
-            return people[i];
+function GetPerson(id){
+    for(i in people) {
+        let p = people[i];
+        if(isAValidPerson(p)) {
+            if(p.id == id){
+                return p; 
+            }
         }
     }
-    return '404';
+    return null;
 }
 
-function getName(id) {
-    for (var i = 0; i < people.length; i++) {
-        if (people[i].id == id) {
-            return (people[i].firstName + " " + people[i].lastName);
-        }
-    }
-    return '404';
+function DeletePerson(id){
+    people = people.filter((person, idx, arr) => person.id != id);
 }
+
+function AddPerson(query) {
+    
+    let person = {};
+    person.id = query.id;
+    person.name = query.name;
+    person.years = query.years;
+
+    DeletePerson(query.id);
+
+    if(isAValidPerson(person)){
+        people.push(person);
+        return person;
+    }
+
+    return null;
+}
+
+function isAValidPerson(person) {
+    return (person.id != null && person.name != null && person.years != null);
+}
+
+app.use(express.static('public'))
+
+app.get('/people', (req, res) => res.json(people));
+
+app.post('/people', function (req, res) {
+    let person = AddPerson(req.body);
+    if(person != null) res.sendStatus(200);
+    else res.sendStatus(404);
+});
+
+app.get('/person/:id', function(req, res) {
+    let person = GetPerson(req.params.id);
+    if (person != null) res.json(person);
+    else res.sendStatus(404);
+});
+
+app.put('/person/:id', function (req, res) {
+    let person = AddPerson(req.body);
+    if(person != null) res.sendStatus(200);
+    else res.sendStatus(404);
+});
+
+app.post('/person/:id', function (req, res) {
+    let person = AddPerson(req.body);
+    if(person != null) res.sendStatus(200);
+    else res.sendStatus(404);
+});
+
+app.delete('/person/:id', function (req, res) {
+    DeletePerson(req.params.id);
+    res.sendStatus(200);
+});
+
+app.get('/person/:id/name', function(req, res) {
+    let person = GetPerson(req.params);
+    if (person != null && person.name != null) res.json(person.name);
+    else res.sendStatus(404);
+});
 
 function getYears(id) {
     var today = new Date();
@@ -92,8 +117,4 @@ function getYears(id) {
     return '404';
 }
 
-app.all("*", (req, res) => {
-    res.sendStatus(404);
-})
-
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
