@@ -1,7 +1,12 @@
 //lab09.txt
 
+9.1
 a. The bundle makes everything into js for passing. It is 4.13 kB in size.
 b. It lets newer versions of javascript be run in older browsers 
 c.
 d. Removes node_modules and loads the babel
 
+9.2
+a.
+b.
+c.
