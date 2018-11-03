@@ -2,11 +2,15 @@
 
 9.1
 a. The bundle makes everything into js for passing. It is 4.13 kB in size.
-b. It lets newer versions of javascript be run in older browsers 
-c.
-d. Removes node_modules and loads the babel
+b. It lets newer versions of javascript be run in older browsers. 
+c. I couldn't get these to load, but I am unsure if that is correct.
+d. Removes node_modules and loads the babel. 
 
 9.2
-a.
-b.
-c.
+a. The bundle is larger, but more optimized.
+b. It simplifies the main load and keeps the code in separated manageable sections.
+c. bundle.js and css
+
+9.3
+a. 3001 refreshes on a save, but 3000 doesn't because it is not checking for changes 		dynamically
+b. It is nice to be able to edit the code with the server still running
