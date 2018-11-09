@@ -1,6 +1,11 @@
 //lab10 answers
 
 10.1
-a. I haven't used SQL databases very much at all, but
+a. I haven't used SQL databases very much at all, butit seems Mongo has high efficiency if sometimes longer commands
 b. I suppose that the local database would be faster, but would not be accesable outside of the local environment. However, it would be unable to be updated by anyone not connected to the local environment.
 c. No, because it is far too small to hold all the data necessary for a production database. You would need to purchase a higher space plan.
+
+10.2
+a. Webpack is good because it is already bundled and fast to use
+b. It works the same as using the site
+c. Not very much needs to be related, so Mongo is fine
