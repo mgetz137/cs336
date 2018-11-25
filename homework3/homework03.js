@@ -5,7 +5,6 @@
 /11-13-18
 */
 
-
 const express = require('express')
 
 const app = express()
@@ -29,15 +28,9 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
-
-//people saved into a json file
-
 var peopleList = path.join(__dirname, 'people.json');
 
 var peopleArray = [];
-
-
-//reading json file of people
 
 fs.readFile(peopleList, function (err, data) {
 
@@ -52,7 +45,6 @@ fs.readFile(peopleList, function (err, data) {
     peopleArray = JSON.parse(data);
 
 });
-
 
 // person specs
 
