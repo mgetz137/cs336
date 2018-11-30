@@ -10,6 +10,7 @@
 
 */
 
+var APP_PATH = path.join(__dirname, 'dist');
 
 const express = require('express')
 
@@ -72,7 +73,7 @@ function GetPerson(params){
 }
 
 
-app.use(express.static('public'))
+app.use('/', express.static(APP_PATH));
 
 
 app.get('/people', (req, res) => res.json(people));
