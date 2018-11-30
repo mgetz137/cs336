@@ -3,6 +3,7 @@
 import React from 'react';
 import $ from 'jquery';
 import '../css/base.css';
+import 'global.js';
 
 import CommentList from './commentList.js';
 import CommentForm from './commentForm.js';
