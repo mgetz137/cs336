@@ -22,28 +22,6 @@ var MongoClient = require('mongodb').MongoClient;
 app.set('port', (process.env.PORT || 3000));
 var db;
 
-MongoClient.connect('mongodb://cs336:' + process.env.MONGO_PASSWORD + '@ds255463.mlab.com:55463/cs336', function (err, client) {
-    if (err) {
-        throw err;
-    }
-
-    db = client.db('cs336');
-
-    db.collection('comments').find().toArray(function (err, result) {
-        if (err) throw err
-
-		db = result;
-
-
-    })
-
-    app.listen(app.get('port'), function () {
-        console.log('Server started: http://localhost:' + app.get('port') + '/');
-
-
-    })
-});
-
 
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
@@ -90,4 +68,28 @@ app.post('/api/comments', function (req, res) {
         });
 
 
+});
+
+app.use('*', express.static(APP_PATH));
+
+MongoClient.connect('mongodb://cs336:' + process.env.MONGO_PASSWORD + '@ds255463.mlab.com:55463/cs336', function (err, client) {
+    if (err) {
+        throw err;
+    }
+
+    db = client.db('cs336');
+
+    db.collection('comments').find().toArray(function (err, result) {
+        if (err) throw err
+
+		db = result;
+
+
+    })
+
+    app.listen(app.get('port'), function () {
+        console.log('Server started: http://localhost:' + app.get('port') + '/');
+
+
+    })
 });
