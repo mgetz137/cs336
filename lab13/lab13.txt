@@ -1,4 +1,9 @@
 13.1
-a.
+a.The routes dont have to be on seperate html pages
 b.Browser history
-c.
+c.This is important for handling web browser back buttons for easy navigation and memory
+
+13.2
+a.It maintains author and text which will update the database
+b.Nothing?
+c.It links to a React component
