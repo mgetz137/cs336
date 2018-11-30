@@ -12,12 +12,14 @@ module.exports = React.createClass({
           <Comment author={comment.author} key={comment.id}>
             {comment.text}
           </Comment>
+		  <Link to={'/' + this.props.id}>Edit</Link>
         );
       });
       return (
         <div className="commentList">
           {commentNodes}
         </div>
+		
       );
     }
   });
